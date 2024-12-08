@@ -33,14 +33,12 @@ function fetchForecast(city) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // Extract temperature and time data for the chart
-      const tempData = data.list.slice(0, 8).map((item) => item.main.temp); // Next 8 hours
+      const tempData = data.list.slice(0, 8).map((item) => item.main.temp);
       const labels = data.list.slice(0, 8).map((item) => {
-        const time = new Date(item.dt * 1000).getHours(); // Convert timestamp to hours
+        const time = new Date(item.dt * 1000).getHours();
         return `${time}:00`;
       });
 
-      // Draw the chart with the extracted data
       drawChart(tempData, labels);
     })
     .catch((error) => alert("Error fetching forecast data."));
@@ -51,11 +49,11 @@ function drawChart(tempData, labels) {
   new Chart(ctx, {
     type: "line",
     data: {
-      labels: labels, // Example: ['9AM', '12PM', '3PM']
+      labels: labels,
       datasets: [
         {
           label: "Temperature (°C)",
-          data: tempData, // Example: [18, 20, 22]
+          data: tempData,
           borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 2,
           fill: false,
@@ -76,14 +74,12 @@ function drawChart(tempData, labels) {
   });
 }
 
-// Example usage
 document.getElementById("search-btn").addEventListener("click", () => {
   const city = document.getElementById("city-input").value;
   fetchWeather(city);
-  fetchForecast(city); // Fetch forecast data for the chart
+  fetchForecast(city);
 });
 
-// Optional: Fetch data for the current location using Geolocation API
 function fetchWeatherByLocation() {
   navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
@@ -126,5 +122,4 @@ function fetchWeatherByLocation() {
   });
 }
 
-// Auto-fetch weather for the current location on page load
 fetchWeatherByLocation();
