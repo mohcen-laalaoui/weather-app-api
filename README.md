@@ -18,4 +18,4 @@ This is a dynamic weather app built using **JavaScript** that fetches real-time 
 ## How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/weather-app-js.git
+   git clone https://github.com/mohcen-laalaoui/weather-app-js.git
