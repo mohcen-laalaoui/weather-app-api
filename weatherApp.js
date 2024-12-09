@@ -1,4 +1,4 @@
-const apiKey = "65002ac8d73f4e2c231b9c997466e9d2";
+const apiKey = "your_api_key";
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather";
 const forecastApiUrl = "https://api.openweathermap.org/data/2.5/forecast";
 
@@ -7,7 +7,7 @@ function fetchWeather(city) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // Update weather details
+
       document.getElementById("city").textContent = data.name;
       document.getElementById("weather-description").textContent =
         data.weather[0].description;
@@ -30,18 +30,29 @@ function fetchWeather(city) {
 
 function fetchForecast(city) {
   const url = `${forecastApiUrl}?q=${city}&appid=${apiKey}&units=metric`;
+
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const tempData = data.list.slice(0, 8).map((item) => item.main.temp);
-      const labels = data.list.slice(0, 8).map((item) => {
-        const time = new Date(item.dt * 1000).getHours();
-        return `${time}:00`;
-      });
+      console.log("Forecast data:", data); 
 
-      drawChart(tempData, labels);
+      if (data.list && data.list.length > 0) {
+        const tempData = data.list.slice(0, 8).map((item) => item.main.temp); 
+        const labels = data.list.slice(0, 8).map((item) => {
+          const time = new Date(item.dt * 1000).getHours(); 
+          return `${time}:00`;
+        });
+
+        drawChart(tempData, labels);
+      } else {
+        console.error("No forecast data available.");
+        alert("No forecast data available.");
+      }
     })
-    .catch((error) => alert("Error fetching forecast data."));
+    .catch((error) => {
+      console.error("Error fetching forecast data:", error); 
+      alert("Error fetching forecast data.");
+    });
 }
 
 function drawChart(tempData, labels) {

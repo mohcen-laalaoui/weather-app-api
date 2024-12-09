@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <h1 id="city">City Name</h1>
 
-      <img id="weather-icon" src="" alt="Weather Icon" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-      <p id="weather-description">Weather Description</p>
+<body>
+  <div class="container">
+    <h1 id="city">City Name</h1>
 
-      <p id="temperature">Temperature: 0°C</p>
+    <img id="weather-icon" src="" alt="Weather Icon" />
 
-      <p id="humidity">Humidity: 0%</p>
+    <p id="weather-description">Weather Description</p>
 
-      <p id="wind-speed">Wind Speed: 0 km/h</p>
+    <p id="temperature">Temperature: 0°C</p>
 
-      <div class="search">
-        <input type="text" id="city-input" placeholder="Enter city name" />
-        <button class="btn" id="search-btn">Search Weather</button>
-      </div>
+    <p id="humidity">Humidity: 0%</p>
 
-      <button class="btn" onclick="fetchWeatherByLocation()">
-        Get Weather by Location
-      </button>
+    <p id="wind-speed">Wind Speed: 0 km/h</p>
 
-      <canvas id="weatherChart" width="400" height="200"></canvas>
+    <div class="search">
+      <input type="text" id="city-input" placeholder="Enter city name" />
+      <button class="btn" id="search-btn">Search Weather</button>
     </div>
 
-    <footer>
-      <p>
-        Powered by
-        <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>
-      </p>
-    </footer>
+    <button class="btn" onclick="fetchWeatherByLocation()">
+      Get Weather by Location
+    </button>
 
-    <script src="weatherApp.js"></script>
-  </body>
+    <canvas id="weatherChart" width="400" height="200"></canvas>
+  </div>
+
+  <footer>
+    <p>
+      Powered by
+      <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>
+    </p>
+  </footer>
+
+  <script src="weatherApp.js"></script>
+</body>
+
 </html>
