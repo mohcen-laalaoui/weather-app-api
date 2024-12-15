@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const apiKey = "your_api_key";
 =======
 const apiKey = "65002ac8d73f4e2c231b9c997466e9d2";
 >>>>>>> b672cd2 (Updated UI layout and styling for improved responsiveness and alignment.)
+=======
+const apiKey = "your api key";
+>>>>>>> 317aff3 (Updated UI layout and styling for improved responsiveness and alignment.)
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather";
 const forecastApiUrl = "https://api.openweathermap.org/data/2.5/forecast";
 
